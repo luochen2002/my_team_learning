@@ -8,7 +8,7 @@
 
 - 课程内容：
 
-  1. **初级课程**：了解人工智能和OpenVINO的工具套件，讲解所有AI的应备知识、相关技术、Intel为每种应用场景推荐的平台和软件工具
+  1. **初级课程**：了解人工智能和OpenVINO的工具套件讲解所有AI的应备知识、相关技术、Intel为每种应用场景推荐的平台和软件工具
 
   2. **中级课程**：深入了解OpenVINO的工具套件，讲解演示OpenVINO，并且练习使用所有的可用的工具
   3. **高级课程**：介绍如何使用Intel平台和工具，在系统层面构建实际可扩展的AI产品
@@ -33,7 +33,7 @@ OpenVINO 100 **– Course agenda**
 
 ### 1.4 总结
 
-<img src="./images/task01/summary_1.png" alt="summary_1.png" style="zoom:50%;" />
+<img src="./images/task01/summary_1.png" alt="summary_1.png" width="520" />
 
 - AI是我们管理物联网收集的海量数据的唯一方法
 - AI将彻底改变我们的未来，可能是构建智能系统的最佳方法
@@ -52,23 +52,23 @@ OpenVINO 100 **– Course agenda**
 - 视频中的大数据：据统计每天全球会有5亿人观看至少1部网络视频，而80%的互联网流量被视频占据，视频中包含了大量的数据，它是由一系列连续的图像构成的，只要这些图像的移动速度足够快，便可以让我们产生物体连续运动的错觉
 - 图像的表示：每个图像由像素构成，每个像素都有一个表示其强度的值。在灰度图像中，每个像素由0~255表示，255表示白色，0表示黑色。在彩色图像中，像素由三个基本色RBG值组合而成，在图像中，像素的急剧变化可以表示为物体的边缘。
 
-<img src="./images/task01/edge of object.png" alt="edge of object.png" style="zoom:50%;" />
+<img src="./images/task01/edge of object.png" alt="edge of object.png" width="520" />
 
 
 ### 2.2 图像处理 
 
 - 模糊：把每个像素的值，替换为周围8个像素的平均值，并对整张图像重复进行该操作，得到更模糊的图像
 
-  <img src="./images/task01/average of 8 neighbors.png" alt="average of 8 neighbors.png" style="zoom:50%;" />
+  <img src="./images/task01/average of 8 neighbors.png" alt="average of 8 neighbors.png" width="520" />
 
 
 - 锐化：反向扩大每个像素点与周围像素点的差异，得到更锐利的图像，我们将此操作称之为锐化。
 
-  <img src="./images/task01/blur&sharpen.png" alt="blur&sharpen.png" style="zoom:50%;" />
+  <img src="./images/task01/blur&sharpen.png" alt="blur&sharpen.png" width="520" />
   
   继续进行锐化，图像将仅保留像素值的显著差异，只能看到图像中物体的边缘，可用于检测图像的角、边缘、线等
   
-  <img src="./images/task01/edge_image.png" alt="edge_image.png" style="zoom:50%;" />
+  <img src="./images/task01/edge_image.png" alt="edge_image.png" width="520" />
 
 
 ### 2.3 OpenCV简介
@@ -79,7 +79,7 @@ OpenVINO 100 **– Course agenda**
 
 ### 2.4 总结
 
-<img src="./images/task01/summary_2.png" alt="summary_2.png" style="zoom:50%;" />
+<img src="./images/task01/summary_2.png" alt="summary_2.png" width="520" />
 
 
 - 视频占互联网流量的80%
@@ -96,7 +96,7 @@ OpenVINO 100 **– Course agenda**
 
 ### 3.1 视频的数据量
 
-<img src="./images/task01/Data volume of video.png" alt="Data volume of video.png" style="zoom:50%;" />
+<img src="./images/task01/Data volume of video.png" alt="Data volume of video.png" width="520" />
 
 - 1帧包括`1920*1080`个像素点，
 - 每个像素由RGB组成，1帧图像的大小为`6.2MB`
@@ -107,11 +107,11 @@ OpenVINO 100 **– Course agenda**
 
 - 空间冗余：例如图像中几张照片中相同天空区域的矩形位置，所有像素都是几乎相同的颜色，只需要存储矩形中所有像素的颜色平均值，在显示的时候，把这个颜色应用于整个矩形中的每一个像素
 
-  <img src="./images/task01/spatial redundancy.png" alt="spatial redundancy.png" style="zoom:50%;" />
+  <img src="./images/task01/spatial redundancy.png" alt="spatial redundancy.png" width="520" />
 
 - 时间冗余：视频中截取的几帧，图像局部区域是一样的，但在屏幕中的位置不断变化，因此基本上不需要重复存储这些像素。可以只存储第一张图像该区域的像素值，接下来的几张图像的矩形区域可以重复直接使用第一张图片存储的像素值。
 
-  <img src="./images/task01/temporal redundancy.png" alt="temporal redundancy.png" style="zoom:50%;" />
+  <img src="./images/task01/temporal redundancy.png" alt="temporal redundancy.png" width="520" />
 
 - 帧值处理：假设有一个新帧图像，记作`I`帧
 
@@ -121,14 +121,14 @@ OpenVINO 100 **– Course agenda**
   
   - `B`帧：在`I`帧和`P`帧之间是`B`帧，`B`帧是帧与帧之间的插值，数据只有`I`帧的1/4，它们之间的变化可以自动生成
   
-    <img src="./images/task01/I_P_B.png" alt="I_P_B.png" style="zoom:50%;" />
+    <img src="./images/task01/I_P_B.png" alt="I_P_B.png" width="520" />
 
 
 ### 3.3 编解码器与视频加速处理
 
 - 视频传输流程：先编码，后解码
 
-  <img src="./images/task01/video transmission process.png" alt="video transmission process.png" style="zoom:50%;" />
+  <img src="./images/task01/video transmission process.png" alt="video transmission process.png" width="520" />
 
 - 视频文件：是一个可以容纳其他文件的文件容器，例如mp4文件包括：
   - 带显示的视频流：h.264
@@ -139,16 +139,16 @@ OpenVINO 100 **– Course agenda**
 
 - 硬件：Intel CPU能够处理编解码任务，使用Intel Quick Sync Video Technology，快速视频同步技术；Intel核心显卡包括两大核心模块，EU和QSVT，EU用于处理图像视频渲染，QSVT包括加速视频处理、解码、编码等等，集成GPU可以在睿频模式下运行
 
-  <img src="./images/task01/Intel integrated GPU.png" alt="Intel integrated GPU.png" style="zoom:50%;" />
+  <img src="./images/task01/Intel integrated GPU.png" alt="Intel integrated GPU.png" width="520" />
 
 
 - 软件：驱动程序在集成GPU的上层，在驱动程序之上是VAAPI-Libva，上层封装了Media-SDK，提供C++/Python语言的API接口，可使用OpenCV、FFMPEG、Gstreamer直接访问该API，OpenVINO包含了Media-SDK
 
-  <img src="./images/task01/Media-SDK.png" alt="Media-SDK.png" style="zoom:50%;" />
+  <img src="./images/task01/Media-SDK.png" alt="Media-SDK.png" width="520" />
 
 ### 3.4 总结
 
-<img src="./images/task01/summary_3.png" alt="summary_3.png" style="zoom:50%;" />
+<img src="./images/task01/summary_3.png" alt="summary_3.png" width="520" />
 
 
 - 视频流传输是一项繁重的任务，数据量非常大
@@ -169,19 +169,19 @@ OpenVINO 100 **– Course agenda**
 
 - 猫的检测：检测对象是否有4条腿、尾巴、颜色、大小等，将所有输入特征放在一个函数中，如果组合正确，就可以判断是猫
 
-  <img src="./images/task01/cat_1.png" alt="cat_1.png" style="zoom:50%;" />
+  <img src="./images/task01/cat_1.png" alt="cat_1.png" width="520" />
   
   同时，为了让模型能检测出更多的猫，泛化性更好，需要对每个特征赋予一定的权重，即每个特征值乘以一个权重，这些相乘的结果加上经过转换之后输出，输出结果等于1则是猫，等于0则不是猫。
   
-  <img src="./images/task01/cat_2.png" alt="cat_2.png" style="zoom:50%;" />
+  <img src="./images/task01/cat_2.png" alt="cat_2.png" width="520" />
   
   而想要检测出更复杂的对象，需要更多的隐藏层，对于神经网络来说层数越多则代表包含的特征越多，若是只有一层则可能包含的特征比较少，不能准确地进行判断，所以我们需要多层结构的神经网络。并且函数与特征之间需要非线性的关系
   
-  <img src="./images/task01/cat_3.png" alt="cat_3.png" style="zoom:50%;" />
+  <img src="./images/task01/cat_3.png" alt="cat_3.png" width="520" />
   
   再进一步，所谓的特征提取器也是对图像进行数学的运算，因此也可以转换成神经网络结构，添加到主函数中。
   
-  <img src="./images/task01/cat_4.png" alt="cat_4.png" style="zoom:50%;" />
+  <img src="./images/task01/cat_4.png" alt="cat_4.png" width="520" />
 
 ### 4.2 神经网络模型构建
 
@@ -208,11 +208,11 @@ OpenVINO 100 **– Course agenda**
   
   3. 使用推理引擎读取IR文件，推理引擎的代码可重复使用，只需要进行非常小的修改，可以在Intel多种硬件上进行推理
   
-     <img src="./images/task01/DLDT.png" alt="DLDT.png" style="zoom:50%;" />
+     <img src="./images/task01/DLDT.png" alt="DLDT.png" width="520" />
 
 ### 4.5 总结
 
-<img src="./images/task01/summary_4.png" alt="summary_4.png" style="zoom:50%;" />
+<img src="./images/task01/summary_4.png" alt="summary_4.png" width="520" />
 
 - 基于深度学习的神经网络是一种各种视觉相关任务的可靠方法
 - 为了获得可以正常运行的网络模型，在训练流程中处理了大量的数据
@@ -241,7 +241,7 @@ OpenVINO 100 **– Course agenda**
 
 - `OpenCV`基本上能完成整个流程
 
-  <img src="./images/task01/application of components in the process.png" alt="application of components in the process.png" style="zoom:50%;" />
+  <img src="./images/task01/application of components in the process.png" alt="application of components in the process.png" width="520" />
 
 ### 5.3 OpenVINO的架构
 
@@ -253,11 +253,11 @@ OpenVINO 100 **– Course agenda**
 
 - 使用DLDT进行推理
 
-  <img src="./images/task01/Distribution of OpenVINO toolkit.png" alt="Distribution of OpenVINO toolkit.png" style="zoom:50%;" />
+  <img src="./images/task01/Distribution of OpenVINO toolkit.png" alt="Distribution of OpenVINO toolkit.png" width="680" />
 
 ### 5.4 总结
 
-<img src="./images/task01/summary_5.png" alt="summary_5.png" style="zoom:50%;" />
+<img src="./images/task01/summary_5.png" alt="summary_5.png" width="520" />
 
 
 - 视频分析：视频处理、计算机视觉和AI推理
@@ -293,7 +293,7 @@ OpenVINO 100 **– Course agenda**
 
 ### 6.4 总结
 
-<img src="./images/task01/summary_6.png" alt="summary_6.png" style="zoom:50%;" />
+<img src="./images/task01/summary_6.png" alt="summary_6.png" width="520" />
 
 
 
@@ -302,7 +302,7 @@ OpenVINO 100 **– Course agenda**
 
 ### 7.1 构建AI应用流程
 
-<img src="./images/task01/AI application process.png" alt="AI application process.png" style="zoom:50%;" />
+<img src="./images/task01/AI application process.png" alt="AI application process.png" width="680" />
 
 - 描述开发人员从选择正确模型到构成系统的整个阶段
 
@@ -339,7 +339,7 @@ OpenVINO 100 **– Course agenda**
 
 ### 7.2 总结
 
-<img src="./images/task01/summary_7.png" alt="summary_7.png" style="zoom:50%;" />
+<img src="./images/task01/summary_7.png" alt="summary_7.png" width="520" />
 
 
 - OpenVINO提供了构建AI应用的所有工具：获取一个深度学习模型，对视频分析流程中的所有指标进行性能评测，最后构建一个AI应用
@@ -354,7 +354,7 @@ OpenVINO 100 **– Course agenda**
 
 - 模型下载器（Model Downloader）
 
-  <img src="./images/task01/Model Downloader.png" alt="Model Downloader.png" style="zoom:50%;" />
+  <img src="./images/task01/Model Downloader.png" alt="Model Downloader.png" width="520" />
 
 - 训练（Train）模型：
 
@@ -366,7 +366,7 @@ OpenVINO 100 **– Course agenda**
 
   - 训练（Training）：
 
-    <img src="./images/task01/Training.png" alt="Training.png" style="zoom:50%;" />
+    <img src="./images/task01/Training.png" alt="Training.png" width="520" />
 
 - Model Zoo：预训练模型（Pre-Trained models），训练扩展（Training extensions）支持基于自定义数据或提供的检查点进行模型训练。以复制整个训练项目，从0开始或者从设置的检查点开始，直接用自己的数据集来替换原始的数据集
 
@@ -378,7 +378,7 @@ OpenVINO 100 **– Course agenda**
 
 - 提供指标评测器（Benchmark App），可显示延迟、吞吐量等信息
 
-  <img src="./images/task01/Inference Transformation Model.png" alt="Inference Transformation Model.png" style="zoom:50%;" />
+  <img src="./images/task01/Inference Transformation Model.png" alt="Inference Transformation Model.png" width="520" />
 
 - Dev Cloud：类似于大型的沙盒，支持所有Intel芯片，提供所有的软件，远程连接设备，对工作负载进行性能测试
 
@@ -392,7 +392,7 @@ OpenVINO 100 **– Course agenda**
 
 - 提供快速入门示例
 
-  <img src="./images/task01/Media-SDK_Encode_Decode.png" alt="Media-SDK_Encode_Decode.png" style="zoom:50%;" />
+  <img src="./images/task01/Media-SDK_Encode_Decode.png" alt="Media-SDK_Encode_Decode.png" width="520" />
 
 ### 8.5 完整流程（Full Pipeline）
 
@@ -412,11 +412,11 @@ OpenVINO 100 **– Course agenda**
 
 - 提供简短代码片段，可以直接放入应用中
 
-  <img src="./images/task01/AI Application.png" alt="AI Application.png" style="zoom:50%;" />
+  <img src="./images/task01/AI Application.png" alt="AI Application.png" width="520" />
 
 ### 8.7 总结
 
-<img src="./images/task01/summary_8.png" alt="summary_8.png" style="zoom:50%;" />
+<img src="./images/task01/summary_8.png" alt="summary_8.png" width="520" />
 
 
 - OpenVINO是一款用于构建视频分析流程的综合分析套件
